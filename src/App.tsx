@@ -84,6 +84,78 @@ export default function AuralisLandingPage() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isTechModalOpen, setIsTechModalOpen] = useState(false);
+
+  const techStackData = [
+    { 
+      name: "React.js", 
+      role: "Frontend Web", 
+      desc: "Digunakan untuk membangun antarmuka website landing page Website terkait Auralis yang modular, cepat, dan interaktif." 
+    },
+    { 
+      name: "Tailwind CSS", 
+      role: "UI Styling", 
+      desc: "Framework CSS utility-first untuk menyusun desain antarmuka website yang sepenuhnya responsif di berbagai ukuran layar." 
+    },
+    { 
+      name: "Java", 
+      role: "Android Native", 
+      desc: "Bahasa pemrograman utama yang membangun seluruh fondasi aplikasi Android, arsitektur MVVM, dan sinkronisasi pemutar audio." 
+    },
+    { 
+      name: "Kotlin", 
+      role: "Build Configuration", 
+      desc: "Diimplementasikan melalui Gradle Kotlin DSL (.kts) untuk manajemen dependensi dan otomasi kompilasi aplikasi yang lebih modern." 
+    },
+    { 
+      name: "Python", 
+      role: "DSP Backend", 
+      desc: "Bahasa inti pada sisi server untuk mengelola orkestrasi pemrosesan sinyal digital dan eksekusi fungsi pemisahan instrumen." 
+    },
+    { 
+      name: "FastAPI", 
+      role: "REST API Server", 
+      desc: "Framework backend untuk memproses request ekstraksi audio secara asinkronus dan real-time dari sisi klien." 
+    },
+    { 
+      name: "Spleeter by Deezer", 
+      role: "Source Separation", 
+      desc: "Engine Machine Learning yang diintegrasikan untuk memisahkan vokal dan instrumen dari track audio secara otomatis." 
+    },
+    { 
+      name: "Librosa", 
+      role: "Cloud Audio Analysis", 
+      desc: "Pustaka Python di sisi server untuk melakukan analisis sinyal digital tingkat lanjut dan ekstraksi fitur audio musik yang kompleks." 
+    },
+    { 
+      name: "TarsosDSP", 
+      role: "On-Device Processing", 
+      desc: "Pustaka pemrosesan audio Java yang beroperasi langsung di HP pengguna untuk deteksi pitch dan ekstraksi suara secara real-time." 
+    },
+    { 
+      name: "Firebase", 
+      role: "Cloud & BaaS", 
+      desc: "Platform Backend-as-a-Service (BaaS) dari Google untuk memfasilitasi hosting, manajemen data, dan analitik ekosistem aplikasi." 
+    },
+    { 
+      name: "RapidAPI", 
+      role: "API Gateway", 
+      desc: "Platform yang menyediakan akses ke berbagai API eksternal seperti API konversi audio dari YouTube." 
+    },
+    { 
+      name: "Docker", 
+      role: "Containerization", 
+      desc: "Platform containerization yang memungkinkan aplikasi untuk dijalankan dalam lingkungan yang konsisten di berbagai sistem." 
+    }
+  ];
+
+  useEffect(() => {
+    if (isTechModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isTechModalOpen]);
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
@@ -313,82 +385,35 @@ export default function AuralisLandingPage() {
         </div>
       </ScrollSection>
 
-      {/* 5. TECH STACK SECTION - Infinite Scrolling Marquee */}
-      <ScrollSection id="architecture" className="py-28 bg-zinc-950 border-y border-zinc-900 overflow-hidden">
+      {/* 5. TECH STACK SECTION */}
+      <ScrollSection id="tech-stack" className="py-28 bg-zinc-950 border-y border-zinc-900 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <div className="text-center">
             <h2 className="text-zinc-500 text-xs font-bold font-mono tracking-[0.4em] uppercase mb-4 text-center">System Architecture</h2>
             <h3 className="text-4xl font-black uppercase tracking-tighter italic text-center text-white">Engineered With</h3>
-            <div className="w-16 h-1 bg-white mx-auto mt-4"></div>
+            <div className="w-16 h-1 bg-white mx-auto mt-4 mb-8"></div>
+            
+            <button 
+              onClick={() => setIsTechModalOpen(true)}
+              className="md:hidden mx-auto bg-zinc-900 hover:bg-white hover:text-black text-zinc-300 text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-full transition-colors border border-zinc-800 flex items-center justify-center gap-2"
+            >
+              Lihat Semua Detail
+            </button>
           </div>
         </div>
 
-        {/* Container Karosel */}
-        <div className="relative flex overflow-hidden py-10">
+        <div 
+          onClick={() => setIsTechModalOpen(true)} 
+          className="relative flex overflow-hidden py-4 cursor-pointer"
+          title="Klik untuk melihat detail arsitektur"
+        >
           <div className="animate-marquee flex whitespace-nowrap gap-6">
-            {/* Kita melakukan mapping 2 kali agar animasi looping tidak terputus */}
             {[...Array(2)].map((_, listIdx) => (
               <React.Fragment key={listIdx}>
-                {[
-                  { 
-                    name: "React.js", 
-                    role: "Frontend Web", 
-                    desc: "Digunakan untuk membangun antarmuka website landing page Website terkait Auralis yang modular, cepat, dan interaktif." 
-                  },
-                  { 
-                    name: "Tailwind CSS", 
-                    role: "UI Styling", 
-                    desc: "Framework CSS utility-first untuk menyusun desain antarmuka website yang sepenuhnya responsif di berbagai ukuran layar." 
-                  },
-                  { 
-                    name: "Java", 
-                    role: "Android Native", 
-                    desc: "Bahasa pemrograman utama yang membangun seluruh fondasi aplikasi Android, arsitektur MVVM, dan sinkronisasi pemutar audio." 
-                  },
-                  { 
-                    name: "Kotlin", 
-                    role: "Build Configuration", 
-                    desc: "Diimplementasikan melalui Gradle Kotlin DSL (.kts) untuk manajemen dependensi dan otomasi kompilasi aplikasi yang lebih modern." 
-                  },
-                  { 
-                    name: "Python", 
-                    role: "AI & DSP Backend", 
-                    desc: "Bahasa inti pada sisi server untuk mengelola orkestrasi pemrosesan sinyal digital dan eksekusi fungsi pemisahan instrumen." 
-                  },
-                  { 
-                    name: "FastAPI", 
-                    role: "REST API Server", 
-                    desc: "Framework backend untuk memproses request ekstraksi audio secara asinkronus dan real-time dari sisi klien." 
-                  },
-                  { 
-                    name: "Spleeter by Deezer", 
-                    role: "Source Separation", 
-                    desc: "Engine Machine Learning yang diintegrasikan untuk memisahkan vokal dan instrumen dari track audio secara otomatis." 
-                  },
-                  { 
-                    name: "Librosa", 
-                    role: "Cloud Audio Analysis", 
-                    desc: "Pustaka Python di sisi server untuk melakukan analisis sinyal digital tingkat lanjut dan ekstraksi fitur audio musik yang kompleks." 
-                  },
-                  { 
-                    name: "TarsosDSP", 
-                    role: "On-Device Processing", 
-                    desc: "Pustaka pemrosesan audio Java yang beroperasi langsung di HP pengguna untuk deteksi pitch dan ekstraksi suara secara real-time." 
-                  },
-                  { 
-                    name: "Firebase", 
-                    role: "Cloud & BaaS", 
-                    desc: "Platform Backend-as-a-Service (BaaS) dari Google untuk memfasilitasi hosting, manajemen data, dan analitik ekosistem aplikasi." 
-                  },
-                  { 
-                    name: "RapidAPI", 
-                    role: "API Gateway", 
-                    desc: "Platform manajemen terpusat untuk mendistribusikan endpoint, mengatur rate-limiting, dan memonitor trafik keamanan server backend." 
-                  }
-                ].map((tech, i) => (
+                {techStackData.map((tech, i) => (
                   <div 
                     key={i} 
-                    className="w-[300px] group border border-zinc-900 bg-zinc-900/30 p-8 rounded-none hover:bg-white hover:text-black transition-all duration-500 flex flex-col justify-between shrink-0 cursor-default"
+                    className="w-[300px] group border border-zinc-900 bg-zinc-900/30 p-8 rounded-none hover:bg-white transition-all duration-500 flex flex-col justify-between shrink-0"
                   >
                     <div>
                       <h4 className="text-xl font-black tracking-tight mb-3 text-white group-hover:text-black">{tech.name}</h4>
@@ -408,7 +433,6 @@ export default function AuralisLandingPage() {
             ))}
           </div>
 
-          {/* Efek Fade di sisi Kiri dan Kanan agar transisi masuk/keluar terlihat halus */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-zinc-950 to-transparent z-10"></div>
           <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-zinc-950 to-transparent z-10"></div>
         </div>
@@ -453,6 +477,48 @@ export default function AuralisLandingPage() {
           </div>
         </div>
       </footer>
+
+      {isTechModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity">
+          
+          <div className="absolute inset-0" onClick={() => setIsTechModalOpen(false)}></div>
+
+          <div className="relative bg-zinc-950 w-full md:w-3/4 lg:max-w-4xl h-[80vh] md:h-auto md:max-h-[85vh] md:rounded-3xl rounded-t-3xl border border-zinc-800 shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col animate-[slideUp_0.3s_ease-out]">
+            
+            <div className="flex items-center justify-between p-6 border-b border-zinc-900 sticky top-0 bg-zinc-950/80 backdrop-blur-md rounded-t-3xl z-10">
+              <div>
+                <h3 className="text-xl font-black uppercase tracking-tighter text-white">Full Architecture</h3>
+                <p className="text-zinc-500 text-xs font-mono mt-1">Auralis Tech Stack Definition</p>
+              </div>
+              <button 
+                onClick={() => setIsTechModalOpen(false)} 
+                className="p-3 text-zinc-400 hover:text-black hover:bg-white rounded-full transition-colors bg-zinc-900 border border-zinc-800"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            <div className="p-6 overflow-y-auto pb-20">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {techStackData.map((tech, i) => (
+                  <div key={i} className="p-5 border border-zinc-900 bg-zinc-900/30 hover:bg-zinc-900 transition flex flex-col justify-between group">
+                    <div>
+                      <div className="flex justify-between items-start mb-2">
+                        <h4 className="text-lg font-bold text-white group-hover:text-white">{tech.name}</h4>
+                        <span className="text-[9px] font-mono tracking-widest text-zinc-400 uppercase bg-black px-2 py-1 rounded border border-zinc-800">
+                          {tech.role}
+                        </span>
+                      </div>
+                      <p className="text-zinc-400 text-sm italic">"{tech.desc}"</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
     </div>
   );
 }

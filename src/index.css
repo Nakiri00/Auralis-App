@@ -11,9 +11,19 @@
   animation: marquee 40s linear infinite;
 }
 
-/* Berhenti saat kursor diarahkan agar pengguna bisa membaca deskripsi */
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
 }
 /* :root {
   --text: #6b6375;
