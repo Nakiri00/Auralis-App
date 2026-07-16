@@ -198,7 +198,7 @@ export default function AuralisLandingPage() {
             <span className="text-zinc-500">TANPA BATAS.</span>
           </h1>
           <p className="text-lg md:text-xl text-zinc-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-            Deteksi chord akurat langsung dari video YouTube atau file audio lokal Anda.
+            Deteksi chord langsung dari video YouTube atau file audio lokal Anda.
             Sahabat terbaik untuk musisi pemula yang ingin belajar dan mencari referensi chord.
           </p>
           <div className="flex justify-center">
