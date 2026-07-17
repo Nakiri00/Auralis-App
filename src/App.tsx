@@ -135,7 +135,7 @@ export default function AuralisLandingPage() {
     { 
       name: "Firebase", 
       role: "Cloud & BaaS", 
-      desc: "Platform Backend-as-a-Service (BaaS) dari Google untuk memfasilitasi hosting, manajemen data, dan analitik ekosistem aplikasi." 
+      desc: "Platform Backend-as-a-Service (BaaS) dari Google untuk autentikasi dan manajemen data." 
     },
     { 
       name: "RapidAPI", 
@@ -189,7 +189,7 @@ export default function AuralisLandingPage() {
               <a href="#home" className="text-zinc-400 hover:text-white text-sm font-medium uppercase tracking-widest transition">Home</a>
               <a href="#interfaces" className="text-zinc-400 hover:text-white text-sm font-medium uppercase tracking-widest transition">Interfaces</a>
               <a href="#how-it-works" className="text-zinc-400 hover:text-white text-sm font-medium uppercase tracking-widest transition">How It Works</a>
-              <a href="#architecture" className="text-zinc-400 hover:text-white text-sm font-medium uppercase tracking-widest transition">Architecture</a>
+              <a href="#tech-stack" className="text-zinc-400 hover:text-white text-sm font-medium uppercase tracking-widest transition">Tech Stack</a>
               <a href="#final-cta" className="text-zinc-400 hover:text-white text-sm font-medium uppercase tracking-widest transition">Join Us</a>
             </div>
 
@@ -239,11 +239,11 @@ export default function AuralisLandingPage() {
               How It Works
             </a>
             <a 
-              href="#architecture" 
+              href="#tech-stack" 
               onClick={() => setIsMenuOpen(false)}
               className="text-zinc-400 hover:text-white text-sm font-medium uppercase tracking-widest py-2 transition"
             >
-              Architecture
+              Tech Stack
             </a>
             <a 
               href="#final-cta" 
