@@ -363,7 +363,7 @@ export default function AuralisLandingPage() {
         </div>
       </ScrollSection>
 
-      {/* 4. HOW IT WORKS SECTION (Wrapped with ScrollAnimate) */}
+      {/* 4. HOW IT WORKS SECTION */}
       <ScrollSection id="how-it-works" className="py-28 bg-black">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black uppercase tracking-tighter mb-20">Bagaimana Sistem Bekerja?</h2>
